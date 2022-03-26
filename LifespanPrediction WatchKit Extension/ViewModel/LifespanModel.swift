@@ -9,6 +9,7 @@ import Foundation
 
 class ContentModel: ObservableObject {
     
+    @Published var endAngle: Double = 30
     @Published var lifeExpectancy: Double = 50
     @Published var completedQuestions: Bool = false
     // weight is in kg. (consider changing inputs to imperial)
@@ -110,8 +111,10 @@ class ContentModel: ObservableObject {
     
     func CalculateLifeExpectancyV2() -> Double{
         let x = ApplySleepTax(sleepHours: self.sleep, lifeExpectancyLeft: CalculateNetBeforeSleep(sex: self.sex, age: self.age, exercise: self.exerciseWeeklyHours, smoking: self.smoke, diet: self.diet, alcohol: self.alcoholGrams, BMI: CalculateBMI()))
-        print(x)
-        return x
+        let y = Double(round(10*x)/10)
+        self.endAngle = Double(self.age)/(Double(self.age) + y)*360
+        print("Life Expectancy Left " + String(y))
+        return y
     }
     
     

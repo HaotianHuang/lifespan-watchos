@@ -20,33 +20,26 @@ struct InputViews: View {
             TabView(selection: $tabSelection){
                 
                 BasicsView(tabSelection: $tabSelection)
-                    .environmentObject(ContentModel())
                     .tag(-1)
                 
                 BMIView(tabSelection: $tabSelection)
-                    .environmentObject(ContentModel())
                     .tag(0)
                 
                 ExerciseView(tabSelection: $tabSelection)
-                    .environmentObject(ContentModel())
                     .tag(1)
 
                     
                 DrugsView(tabSelection: $tabSelection)
-                    .environmentObject(ContentModel())
                     .tag(2)
                 
                 DietView(tabSelection: $tabSelection)
-                    .environmentObject(ContentModel())
                     .tag(3)
                 
                 SleepView(tabSelection: $tabSelection)
-                    .environmentObject(ContentModel())
                     .tag(4)
                 
                 CalculateView(tabSelection: $tabSelection)
-                    .environmentObject(ContentModel())
-                    .tag(5)
+                   .tag(5)
 
             }
 

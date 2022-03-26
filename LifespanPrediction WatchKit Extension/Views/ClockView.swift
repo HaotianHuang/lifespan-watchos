@@ -27,7 +27,7 @@ struct ClockView: View {
     
     @EnvironmentObject var model: ContentModel
     // if you want 30 degrees do endAngle = 30. 360 is full circle.
-    let endAngle: CGFloat = 30
+    //let endAngle: CGFloat = 30
     let estimatedLifespan: Int = 67
     
     private let gradient = AngularGradient(
@@ -50,7 +50,7 @@ struct ClockView: View {
                 
                 Spacer()
                 
-                Text("10:09")
+                Text("Age: " + String(model.age))
                     .fontWeight(.light)
                     .foregroundColor(.gray)
                 
@@ -64,7 +64,7 @@ struct ClockView: View {
                     .foregroundColor(.gray)
                     .frame(width: 140, height: 140)
                 
-                Arc(startAngle: .degrees(endAngle), endAngle: .degrees(0), clockwise: true)
+                Arc(startAngle: .degrees(model.endAngle), endAngle: .degrees(0), clockwise: true)
                   .stroke(gradient, lineWidth: 10)
                   .frame(width: 130, height: 130)
                   .rotationEffect(Angle(degrees: 270))
@@ -82,10 +82,7 @@ struct ClockView: View {
                       Text("ESTIMATED LIFESPAN")
                         .font(.system(size: 8, weight: .light))
                           .fontWeight(.regular)
-                          
-
-                      
-                    
+               
                 }
             }
             
