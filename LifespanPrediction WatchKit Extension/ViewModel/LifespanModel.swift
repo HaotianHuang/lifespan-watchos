@@ -109,9 +109,9 @@ class ContentModel: ObservableObject {
     }
     
     func CalculateLifeExpectancyV2() -> Double{
-        
-        return ApplySleepTax(sleepHours: self.sleep, lifeExpectancyLeft: CalculateNetBeforeSleep(sex: self.sex, age: self.age, exercise: self.exerciseWeeklyHours, smoking: self.smoke, diet: self.diet, alcohol: self.alcoholGrams, BMI: CalculateBMI()))
-        
+        let x = ApplySleepTax(sleepHours: self.sleep, lifeExpectancyLeft: CalculateNetBeforeSleep(sex: self.sex, age: self.age, exercise: self.exerciseWeeklyHours, smoking: self.smoke, diet: self.diet, alcohol: self.alcoholGrams, BMI: CalculateBMI()))
+        print(x)
+        return x
     }
     
     
